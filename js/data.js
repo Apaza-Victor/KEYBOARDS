@@ -125,6 +125,8 @@ const PROGRAMS = [
     { keys:['M'],                description:'Mostrar máscara' },
     { keys:['Ctrl','Alt','F'],   description:'Ajustar al tamaño de comp' },
     { keys:['L'],                description:'Mostrar Niveles de Audio' },
+    { keys:['Ctrl','Shift','Y'], description:'Nueva capa sólida' },
+    { keys:['Ctrl','Alt','T'],   description:'Time Stretch' },
   ]},
   { program:'Premiere Pro', category:'video', color:'#1d1342', shortcuts:[
     { keys:['C'],                description:'Cuchilla (Razor)' },
