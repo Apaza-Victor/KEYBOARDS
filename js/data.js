@@ -246,6 +246,65 @@ const PROGRAMS = [
     { keys: ['Alt','Scroll'], description: 'Zoom suave' },
     { keys: ['Shift','Backspace'], description: 'Relleno inteligente' },
     { keys: ['Ctrl','Alt','I'], description: 'Tamaño de imagen' },
+        // --- SELECCIÓN Y MOVIMIENTO ---
+    { keys:['V'], description:'Mover herramienta' },
+    { keys:['M'], description:'Marco rectangular / elíptico' },
+    { keys:['Ctrl','D'], description:'Deseleccionar' },
+    { keys:['Ctrl','Shift','D'], description:'Volver a seleccionar' },
+    { keys:['Ctrl','A'], description:'Seleccionar todo' },
+    { keys:['Ctrl','Shift','A'], description:'Deseleccionar todo' },
+    { keys:['Ctrl','Alt','A'], description:'Seleccionar todas las capas' },
+    { keys:['Shift','Click'], description:'Añadir a selección' },
+    { keys:['Alt','Click'], description:'Restar de selección' },
+    // --- CAPAS (MUY IMPORTANTES) ---
+    { keys:['Ctrl','Shift',']'], description:'Traer capa al frente' },
+    { keys:['Ctrl','Shift','['], description:'Enviar capa atrás' },
+    { keys:['Ctrl',']'], description:'Subir capa un nivel' },
+    { keys:['Ctrl','['], description:'Bajar capa un nivel' },
+    { keys:['Ctrl','E'], description:'Combinar capas' },
+    { keys:['Ctrl','Shift','E'], description:'Combinar visibles' },
+    { keys:['Ctrl','Alt','Shift','E'], description:'Stamp visible (capa combinada editable)' },
+    { keys:['Ctrl','Shift','G'], description:'Desagrupar capas' },
+    { keys:['Ctrl','Alt','G'], description:'Crear máscara de recorte' },
+    { keys:['Ctrl','J'], description:'Duplicar capa' }, // refuerzo PRO
+    // --- HERRAMIENTAS ---
+    { keys:['I'], description:'Cuentagotas' },
+    { keys:['G'], description:'Bote de pintura / degradado' },
+    { keys:['K'], description:'Cubo 3D / herramienta secundaria' },
+    { keys:['C'], description:'Recortar (Crop)' },
+    { keys:['P'], description:'Pluma (Pen tool)' },
+    { keys:['T'], description:'Texto' },
+    { keys:['H'], description:'Mano (Hand tool)' },
+    { keys:['Z'], description:'Zoom' },
+    // --- TRANSFORMACIÓN ---
+    { keys:['Ctrl','Alt','T'], description:'Transformación con copia' },
+    { keys:['Ctrl','Shift','T'], description:'Repetir transformación' },
+    { keys:['Ctrl','0'], description:'Ajustar pantalla' },
+    { keys:['Ctrl','1'], description:'Zoom 100%' },
+    // --- HISTORIAL Y DESHACER ---
+    { keys:['Ctrl','Z'], description:'Deshacer / rehacer (toggle)' },
+    { keys:['Ctrl','Alt','Z'], description:'Paso atrás múltiple' },
+    { keys:['Ctrl','Shift','Z'], description:'Paso adelante' },
+    // --- SELECCIÓN AVANZADA ---
+    { keys:['Ctrl','Shift','J'], description:'Cortar en nueva capa' },
+    { keys:['Ctrl','Shift','Alt','R'], description:'Seleccionar y aplicar máscara' },
+    // --- RELLENO Y EDICIÓN ---
+    { keys:['Shift','F5'], description:'Rellenar' },
+    { keys:['Shift','F6'], description:'Desvanecer selección' },
+    { keys:['Alt','Backspace'], description:'Relleno según contenido (frontal)' },
+    // --- GUARDADO / EXPORTACIÓN ---
+    { keys:['Ctrl','S'], description:'Guardar' },
+    { keys:['Ctrl','Shift','S'], description:'Guardar como' },
+    { keys:['Ctrl','Alt','Shift','S'], description:'Exportar para web' },
+    { keys:['Ctrl','Alt','S'], description:'Guardar copia' },
+    // --- NAVEGACIÓN ---
+    { keys:['Space'], description:'Mano temporal (mover lienzo)' },
+    { keys:['Ctrl','+'], description:'Acercar zoom' },
+    { keys:['Ctrl','-'], description:'Alejar zoom' },
+    // --- MASCARAS Y AJUSTES ---
+    { keys:['Ctrl','I'], description:'Invertir imagen' },
+    { keys:['Ctrl','Shift','U'], description:'Desaturar' },
+    { keys:['Ctrl','Alt','Shift','B'], description:'Blanco y negro automático' },
   ]},
   { program:'Illustrator', category:'graphic', color:'#300', shortcuts:[
     { keys:['P'],                description:'Herramienta Pluma' },
@@ -707,6 +766,51 @@ const PROGRAMS = [
     { keys: ['Ctrl','/'], description: 'Comentar línea' },
     { keys: ['Ctrl','D'], description: 'Seleccionar coincidencia' },
     { keys: ['Ctrl','Shift','L'], description: 'Seleccionar todas las coincidencias' },
+        // --- NAVEGACIÓN ---
+    { keys:['Ctrl','P'], description:'Ir a archivo rápido (Quick Open)' },
+    { keys:['Ctrl','G'], description:'Ir a línea' },
+    { keys:['F12'], description:'Ir a definición' },
+    { keys:['Alt','F12'], description:'Vista previa de definición' },
+    // --- PALETA Y CONFIG ---
+    { keys:['Ctrl','Shift','P'], description:'Paleta de comandos' },
+    { keys:['Ctrl','K','Ctrl','S'], description:'Atajos de teclado' },
+    // --- TERMINAL ---
+    { keys:['Ctrl','`'], description:'Abrir/cerrar terminal' },
+    { keys:['Ctrl','Shift','`'], description:'Nueva terminal' },
+    // --- EDICIÓN RÁPIDA ---
+    { keys:['Alt','↑'], description:'Mover línea arriba' },
+    { keys:['Alt','↓'], description:'Mover línea abajo' },
+    { keys:['Shift','Alt','↑'], description:'Copiar línea arriba' },
+    { keys:['Shift','Alt','↓'], description:'Copiar línea abajo' },
+    { keys:['Ctrl','Shift','K'], description:'Eliminar línea' },
+    // 🔥 NUEVO (lo que pediste: varias líneas)
+    { keys:['Tab'], description:'Indentar (mover varias líneas a la derecha)' },
+    { keys:['Shift','Tab'], description:'Desindentar (mover a la izquierda)' },
+    { keys:['Ctrl',']'], description:'Indentar selección' },
+    { keys:['Ctrl','['], description:'Desindentar selección' },
+    // --- SELECCIÓN ---
+    { keys:['Ctrl','D'], description:'Seleccionar siguiente coincidencia' },
+    { keys:['Ctrl','Shift','L'], description:'Seleccionar todas las coincidencias' },
+    { keys:['Ctrl','Shift','Alt','Down'], description:'Cursor múltiple hacia abajo' },
+    { keys:['Ctrl','Shift','Alt','Up'], description:'Cursor múltiple hacia arriba' },
+    { keys:['Alt','Click'], description:'Agregar cursor manual' },
+    // --- BÚSQUEDA ---
+    { keys:['Ctrl','F'], description:'Buscar en archivo' },
+    { keys:['Ctrl','H'], description:'Buscar y reemplazar' },
+    { keys:['Ctrl','Shift','F'], description:'Buscar en proyecto' },
+    // --- CÓDIGO ---
+    { keys:['Ctrl','/'], description:'Comentar/descomentar línea' },
+    { keys:['Shift','Alt','A'], description:'Comentar bloque' },
+    { keys:['Alt','Shift','F'], description:'Formatear documento' },
+    { keys:['F2'], description:'Renombrar símbolo' },
+    // --- VISTA ---
+    { keys:['Ctrl','B'], description:'Mostrar/ocultar sidebar' },
+    { keys:['Ctrl','\\'], description:'Dividir editor' },
+    { keys:['Ctrl','+'], description:'Zoom in' },
+    { keys:['Ctrl','-'], description:'Zoom out' },
+    // --- DUPLICADO / EDICIÓN AVANZADA ---
+    { keys:['Shift','Alt','Down'], description:'Duplicar línea abajo' },
+    { keys:['Shift','Alt','Up'], description:'Duplicar línea arriba' },
   ]},
   { program:'Terminal (Linux/Mac)', category:'dev', color:'#1a1a1a', shortcuts:[
     { keys:['Ctrl','C'],         description:'Interrumpir proceso actual' },
@@ -736,6 +840,32 @@ const PROGRAMS = [
     { keys:['Alt','Enter'],      description:'Pantalla completa / ventana' },
     { keys:['F3'],               description:'Repetir último comando' },
     { keys:['Ctrl','M'],         description:'Modo marcación (para copiar)' },
+        // --- NAVEGACIÓN ---
+    { keys:['↑'], description:'Comando anterior en historial' },
+    { keys:['↓'], description:'Comando siguiente en historial' },
+    { keys:['F7'], description:'Mostrar historial de comandos' },
+    { keys:['F3'], description:'Repetir último comando' },
+    { keys:['F8'], description:'Buscar en historial de comandos' },
+    // --- EDICIÓN ---
+    { keys:['Tab'], description:'Autocompletar archivo o carpeta' },
+    { keys:['Shift','Tab'], description:'Autocompletar inverso' },
+    { keys:['Ctrl','A'], description:'Seleccionar todo el texto' },
+    { keys:['Ctrl','C'], description:'Cancelar proceso en ejecución' },
+    { keys:['Ctrl','Break'], description:'Forzar detención de comando' },
+    // --- COPIAR / SELECCIÓN ---
+    { keys:['Ctrl','M'], description:'Modo marcar (selección de texto)' },
+    { keys:['Enter'], description:'Copiar texto seleccionado (en modo marcar)' },
+    // --- PANTALLA ---
+    { keys:['cls'], description:'Limpiar pantalla (comando)' },
+    { keys:['Alt','Enter'], description:'Pantalla completa / ventana' },
+    // --- BÚSQUEDA ---
+    { keys:['Ctrl','F'], description:'Buscar en consola' },
+    // --- NAVEGACIÓN DE RUTA (MUY ÚTIL) ---
+    { keys:['cd'], description:'Cambiar directorio' },
+    { keys:['cd..'], description:'Subir un nivel de carpeta' },
+    { keys:['dir'], description:'Listar archivos y carpetas' },
+    // --- PRO TIP (NO ES TECLA PERO ES CLAVE) ---
+    { keys:['arrow + Tab'], description:'Autocompletar rutas completas' },
   ]},
   { program:'Wireshark', category:'dev', color:'#1e5da3', shortcuts:[
     { keys:['Ctrl','K'],         description:'Iniciar captura' },
