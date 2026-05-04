@@ -131,6 +131,53 @@ const PROGRAMS = [
     { keys: ['Ctrl','Alt','Home'], description: 'Centrar Anchor Point' },
     { keys: ['Alt','Click (reloj)'], description: 'Activar expresiones' },
     { keys: ['Ctrl','Shift','Alt','V'], description: 'Pegar con keyframes' },
+        // --- PROPIEDADES RÁPIDAS ---
+    { keys:['P'], description:'Posición' },
+    { keys:['S'], description:'Escala' },
+    { keys:['R'], description:'Rotación' },
+    { keys:['T'], description:'Opacidad' },
+    { keys:['A'], description:'Punto de anclaje' },
+    { keys:['U'], description:'Mostrar keyframes activos' },
+    { keys:['UU'], description:'Mostrar propiedades modificadas' },
+    // --- KEYFRAMES ---
+    { keys:['F9'], description:'Easy Ease (suavizado)' },
+    { keys:['Ctrl','Shift','K'], description:'Añadir keyframe automático' },
+    { keys:['Alt','Click reloj'], description:'Activar/desactivar expresiones' },
+    { keys:['Alt','Shift','Click reloj'], description:'Pick whip expresiones' },
+    // --- CAPAS ---
+    { keys:['Ctrl','D'], description:'Duplicar capa' },
+    { keys:['Ctrl','Shift','C'], description:'Precomponer selección' },
+    { keys:['Ctrl','Shift','D'], description:'Dividir capa' },
+    { keys:['Ctrl','Alt','Shift','C'], description:'Precompose avanzado (ajuste)' },
+    // --- TIEMPO / DURACIÓN ---
+    { keys:['Alt','['], description:'Recortar inicio de capa' },
+    { keys:['Alt',']'], description:'Recortar final de capa' },
+    { keys:['Ctrl','Alt','T'], description:'Time Stretch' },
+    { keys:['Ctrl','Shift','D'], description:'Split layer' },
+    // --- COMP / PROYECTO ---
+    { keys:['Ctrl','K'], description:'Ajustes de composición' },
+    { keys:['Ctrl','Alt','F'], description:'Ajustar a composición' },
+    { keys:['Ctrl','N'], description:'Nueva composición' },
+    { keys:['Ctrl','Alt','Shift','N'], description:'Nueva capa sólida' },
+    // --- TIMELINE / VISUALIZACIÓN ---
+    { keys:['0'], description:'Preview RAM' },
+    { keys:['. (num pad)'], description:'Preview solo audio/video' },
+    { keys:['Space'], description:'Play / Stop' },
+    // --- MÁSCARAS ---
+    { keys:['M'], description:'Mostrar máscara' },
+    { keys:['MM'], description:'Mostrar todas propiedades de máscara' },
+    // --- AUDIO ---
+    { keys:['L'], description:'Mostrar niveles de audio' },
+    { keys:['LL'], description:'Mostrar forma de onda de audio' },
+    // --- ANIMACIÓN PRO ---
+    { keys:['Ctrl','Alt','Home'], description:'Centrar Anchor Point automáticamente' },
+    { keys:['Ctrl','Shift','Alt','V'], description:'Pegar con keyframes ajustados' },
+    // --- MOVIMIENTO RÁPIDO ---
+    { keys:['J'], description:'Ir keyframe anterior' },
+    { keys:['K'], description:'Ir keyframe siguiente' },
+    // --- WORKFLOW PRO ---
+    { keys:['Ctrl','/'], description:'Comentar capa (label workflow)' },
+    { keys:['Ctrl','Shift','Y'], description:'Configuración de sólido' },
   ]},
   { program:'Premiere Pro', category:'video', color:'#1d1342', shortcuts:[
     { keys:['C'],                description:'Cuchilla (Razor)' },
@@ -157,6 +204,52 @@ const PROGRAMS = [
     { keys: ['\\'], description: 'Ver toda la timeline' },
     { keys: ['Shift','K'], description: 'Avanzar 5 frames' },
     { keys: ['Shift','J'], description: 'Retroceder 5 frames' },
+      // --- HERRAMIENTAS PRINCIPALES ---
+    { keys:['V'], description:'Herramienta selección' },
+    { keys:['C'], description:'Cuchilla (Razor tool)' },
+    { keys:['A'], description:'Selección hacia adelante' },
+    { keys:['Shift','A'], description:'Selección hacia atrás' },
+    // --- EDICIÓN RÁPIDA ---
+    { keys:['Q'], description:'Ripple trim anterior' },
+    { keys:['W'], description:'Ripple trim siguiente' },
+    { keys:['Ctrl','K'], description:'Cortar en cabezal (Add edit)' },
+    { keys:['Ctrl','Shift','K'], description:'Cortar todas las pistas' },
+    // --- MARKERS / PUNTOS ---
+    { keys:['I'], description:'Punto de entrada' },
+    { keys:['O'], description:'Punto de salida' },
+    { keys:['M'], description:'Agregar marcador' },
+    { keys:['Shift','M'], description:'Ir al siguiente marcador' },
+    { keys:['Ctrl','Shift','M'], description:'Ir al marcador anterior' },
+    // --- TIMELINE / NAVEGACIÓN ---
+    { keys:['Espacio'], description:'Play / pausa' },
+    { keys:['K'], description:'Stop' },
+    { keys:['J'], description:'Rebobinar' },
+    { keys:['L'], description:'Avanzar' },
+    { keys:['Shift','J'], description:'Retroceder 5 frames' },
+    { keys:['Shift','K'], description:'Avanzar 5 frames' },
+    { keys:['\\'], description:'Ajustar timeline a pantalla' },
+    { keys:['+'], description:'Zoom in timeline' },
+    { keys:['-'], description:'Zoom out timeline' },
+    // --- CLIPS ---
+    { keys:[','], description:'Insertar en timeline' },
+    { keys:['.'], description:'Sobrescribir en timeline' },
+    { keys:['Alt','Arrastrar'], description:'Duplicar clip' },
+    { keys:['Ctrl','D'], description:'Aplicar transición por defecto' },
+    { keys:['Shift','D'], description:'Transición por defecto audio/video' },
+    // --- AUDIO ---
+    { keys:['Ctrl','L'], description:'Enlazar / desenlazar audio y video' },
+    { keys:['Shift','S'], description:'Silenciar clip seleccionado' },
+    { keys:['Shift','A'], description:'Solo audio seleccionado' },
+    // --- EXPORTACIÓN ---
+    { keys:['Ctrl','M'], description:'Exportar media' },
+    { keys:['Ctrl','Shift','E'], description:'Exportar frame' },
+    // --- WORKFLOW PRO (MUY IMPORTANTE) ---
+    { keys:['Shift','1'], description:'Espacio de trabajo ensamblaje' },
+    { keys:['Shift','3'], description:'Espacio de trabajo color' },
+    { keys:['Shift','4'], description:'Espacio de trabajo efectos' },
+    // --- VELOCIDAD / EDICIÓN PRO ---
+    { keys:['Ctrl','R'], description:'Velocidad / duración clip' },
+    { keys:['Ctrl','Shift','R'], description:'Retime avanzado (speed ramp base)' },
   ]},
   { program:'DaVinci Resolve', category:'video', color:'#1a1a1a', shortcuts:[
     { keys:['Alt','S'],          description:'Nuevo Nodo Serial' },
@@ -329,6 +422,54 @@ const PROGRAMS = [
     { keys: ['Alt','Drag'], description: 'Duplicar objeto' },
     { keys: ['Ctrl','2'], description: 'Bloquear selección' },
     { keys: ['Ctrl','Alt','2'], description: 'Desbloquear todo' },
+        // --- HERRAMIENTAS BASE ---
+    { keys:['V'], description:'Herramienta selección' },
+    { keys:['A'], description:'Selección directa (nodos)' },
+    { keys:['P'], description:'Pluma (Pen tool)' },
+    { keys:['N'], description:'Lápiz' },
+    { keys:['Shift','M'], description:'Constructor de formas (Shape Builder)' },
+    { keys:['E'], description:'Borrador' },
+    { keys:['R'], description:'Rotar' },
+    { keys:['S'], description:'Escalar' },
+    { keys:['O'], description:'Reflejo (Reflect tool)' },
+    // --- TEXTO ---
+    { keys:['T'], description:'Texto' },
+    { keys:['Ctrl','Shift','O'], description:'Convertir texto a trazado' },
+    // --- ORGANIZACIÓN ---
+    { keys:['Ctrl','G'], description:'Agrupar' },
+    { keys:['Ctrl','Shift','G'], description:'Desagrupar' },
+    { keys:['Ctrl','2'], description:'Bloquear selección' },
+    { keys:['Ctrl','Alt','2'], description:'Desbloquear todo' },
+    // --- DUPLICADO / EDICIÓN ---
+    { keys:['Alt','Drag'], description:'Duplicar objeto' },
+    { keys:['Ctrl','C'], description:'Copiar' },
+    { keys:['Ctrl','F'], description:'Pegar delante' },
+    { keys:['Ctrl','B'], description:'Pegar detrás' },
+    // --- MÁS CONTROL VECTORIAL ---
+    { keys:['Ctrl','J'], description:'Unir puntos' },
+    { keys:['Ctrl','Shift','J'], description:'Promediar puntos' },
+    { keys:['Ctrl','Alt','Shift','J'], description:'Cerrar trazado limpio' },
+    // --- ALINEACIÓN (MUY IMPORTANTE) ---
+    { keys:['Shift','F7'], description:'Panel de alineación' },
+    { keys:['Ctrl','Shift','A'], description:'Alinear a mesa de trabajo' },
+    // --- MÁSCARAS ---
+    { keys:['Ctrl','7'], description:'Crear máscara de recorte' },
+    { keys:['Ctrl','Alt','7'], description:'Soltar máscara de recorte' },
+    // --- VISUALIZACIÓN ---
+    { keys:['Ctrl','Y'], description:'Modo contorno' },
+    { keys:['Ctrl','Shift','H'], description:'Ocultar mesa de trabajo' },
+    { keys:['Ctrl','+'], description:'Zoom in' },
+    { keys:['Ctrl','-'], description:'Zoom out' },
+    // --- EXPORTACIÓN ---
+    { keys:['Ctrl','Shift','S'], description:'Guardar como' },
+    { keys:['Ctrl','Shift','E'], description:'Exportar' },
+    // --- COLOR Y APARIENCIA ---
+    { keys:['I'], description:'Cuentagotas' },
+    { keys:['Shift','X'], description:'Cambiar relleno/trazo' },
+    { keys:['D'], description:'Colores por defecto' },
+    // --- MEZCLA / EFECTOS ---
+    { keys:['Ctrl','Alt','B'], description:'Crear mezcla (Blend)' },
+    { keys:['Ctrl','Shift','B'], description:'Opciones de mezcla' },
   ]},
   { program:'InDesign', category:'graphic', color:'#49021f', shortcuts:[
     { keys:['T'],                description:'Herramienta Texto' },
@@ -395,6 +536,47 @@ const PROGRAMS = [
     { keys:['F11'],              description:'Relleno de degradado' },
     { keys:['F12'],              description:'Propiedades del contorno' },
     { keys:['G'],                description:'Relleno interactivo' },
+        // --- HERRAMIENTAS PRINCIPALES ---
+    { keys:['P'], description:'Pluma (Bezier)' },
+    { keys:['F10'], description:'Herramienta forma (nodos)' },
+    { keys:['F6'], description:'Rectángulo' },
+    { keys:['F7'], description:'Elipse' },
+    { keys:['F5'], description:'Línea a mano alzada' },
+    { keys:['Ctrl','Q'], description:'Convertir a curvas' },
+    // --- AGRUPAR / ORGANIZAR ---
+    { keys:['Ctrl','G'], description:'Agrupar' },
+    { keys:['Ctrl','U'], description:'Desagrupar' },
+    { keys:['Ctrl','L'], description:'Combinar objetos' },
+    { keys:['Ctrl','K'], description:'Separar objetos combinados' },
+    // --- IMPORTAR / EXPORTAR ---
+    { keys:['Ctrl','I'], description:'Importar' },
+    { keys:['Ctrl','E'], description:'Exportar' },
+    { keys:['Ctrl','S'], description:'Guardar' },
+    // --- ALINEACIÓN (CLAVE PRO) ---
+    { keys:['Ctrl','Shift','A'], description:'Panel de alineación' },
+    { keys:['P + P'], description:'Centrar en página' },
+    // --- EDICIÓN DE NODOS ---
+    { keys:['F10'], description:'Editar nodos' },
+    { keys:['Ctrl','Shift','Q'], description:'Convertir contorno en objeto' },
+    { keys:['Ctrl','Shift','L'], description:'Unir nodos' },
+    // --- RELLENO Y COLOR ---
+    { keys:['G'], description:'Relleno interactivo' },
+    { keys:['F11'], description:'Relleno degradado' },
+    { keys:['F12'], description:'Propiedades de contorno' },
+    { keys:['Shift','F11'], description:'Relleno uniforme' },
+    // --- TRANSFORMACIÓN ---
+    { keys:['R'], description:'Rotar' },
+    { keys:['S'], description:'Escalar' },
+    { keys:['Alt','Drag'], description:'Duplicar objeto' },
+    { keys:['Ctrl','D'], description:'Repetir última acción' },
+    // --- VISUALIZACIÓN ---
+    { keys:['Ctrl','W'], description:'Vista de wireframe' },
+    { keys:['Ctrl','Shift','W'], description:'Vista normal' },
+    { keys:['Ctrl','+'], description:'Zoom in' },
+    { keys:['Ctrl','-'], description:'Zoom out' },
+    // --- OBJETOS AVANZADOS ---
+    { keys:['Ctrl','Shift','C'], description:'Convertir a curvas avanzadas' },
+    { keys:['Ctrl','Shift','A'], description:'Alinear objetos' },
   ]},
   { program:'Canva', category:'graphic', color:'#7d2ae8', shortcuts:[
     { keys:['T'],                description:'Añadir texto' },
@@ -450,6 +632,50 @@ const PROGRAMS = [
     { keys:['Ctrl','K'],         description:'Eliminar selección' },
     { keys:['Ctrl','Shift','E'], description:'Exportar múltiples archivos' },
     { keys:['Ctrl','B'],         description:'Añadir etiqueta en cursor' },
+        // --- GRABACIÓN Y REPRODUCCIÓN ---
+    { keys:['R'], description:'Grabar' },
+    { keys:['Espacio'], description:'Play / pausa' },
+    { keys:['Shift','R'], description:'Detener grabación' },
+    { keys:['K'], description:'Stop' },
+    // --- SELECCIÓN Y EDICIÓN ---
+    { keys:['Ctrl','A'], description:'Seleccionar todo' },
+    { keys:['Ctrl','D'], description:'Duplicar selección' },
+    { keys:['Ctrl','K'], description:'Eliminar selección' },
+    { keys:['Ctrl','I'], description:'Dividir clip' },
+    { keys:['Ctrl','J'], description:'Unir audio (join)' },
+    { keys:['Ctrl','L'], description:'Silenciar selección' },
+    // --- PISTAS ---
+    { keys:['Ctrl','Shift','N'], description:'Nueva pista' },
+    { keys:['Ctrl','Shift','T'], description:'Nueva pista estéreo' },
+    { keys:['Ctrl','Shift','U'], description:'Nueva pista de audio' },
+    { keys:['Ctrl','Shift','D'], description:'Duplicar pista' },
+    // --- HERRAMIENTAS ---
+    { keys:['F1'], description:'Herramienta selección' },
+    { keys:['F2'], description:'Herramienta envolvente' },
+    { keys:['F3'], description:'Herramienta dibujo' },
+    { keys:['F4'], description:'Herramienta zoom' },
+    { keys:['F5'], description:'Herramienta tiempo shift' },
+    // --- EDICIÓN DE AUDIO ---
+    { keys:['Z'], description:'Cruce por cero (Zero crossing)' },
+    { keys:['Ctrl','Shift','Z'], description:'Deshacer múltiple' },
+    { keys:['Ctrl','R'], description:'Repetir última acción' },
+    // --- EXPORTACIÓN ---
+    { keys:['Ctrl','E'], description:'Exportar audio' },
+    { keys:['Ctrl','Shift','E'], description:'Exportar múltiples archivos' },
+    { keys:['Ctrl','Shift','M'], description:'Exportar mezcla' },
+    // --- NAVEGACIÓN / ZOOM ---
+    { keys:['Ctrl','1'], description:'Zoom normal' },
+    { keys:['Ctrl','2'], description:'Zoom en selección' },
+    { keys:['Ctrl','3'], description:'Zoom en proyecto' },
+    { keys:['Ctrl','+'], description:'Zoom in' },
+    { keys:['Ctrl','-'], description:'Zoom out' },
+    // --- MARCADORES / ETIQUETAS ---
+    { keys:['Ctrl','B'], description:'Añadir etiqueta en cursor' },
+    { keys:['Ctrl','M'], description:'Añadir marcador' },
+    { keys:['Shift','M'], description:'Ir a marcador siguiente' },
+    // --- SELECCIÓN AVANZADA ---
+    { keys:['Shift','Click'], description:'Extender selección' },
+    { keys:['Ctrl','Shift','A'], description:'Deseleccionar todo' },
   ]},
   { program:'Adobe Audition', category:'audio', color:'#00005b', shortcuts:[
     { keys:['Espacio'],          description:'Play / Pausa' },
@@ -466,6 +692,46 @@ const PROGRAMS = [
     { keys:['Ctrl','Shift','M'], description:'Silenciar pista' },
     { keys:['F'],                description:'Zoom a selección' },
     { keys:['Ctrl','L'],         description:'Normalizar' },
+      // --- REPRODUCCIÓN / GRABACIÓN ---
+    { keys:['Espacio'], description:'Play / pausa' },
+    { keys:['Shift','Espacio'], description:'Reproducir desde el inicio' },
+    { keys:['R'], description:'Grabar' },
+    { keys:['K'], description:'Stop' },
+    // --- EDICIÓN BÁSICA ---
+    { keys:['Ctrl','K'], description:'Dividir clip' },
+    { keys:['Ctrl','Shift','K'], description:'Ripple delete (eliminar con cierre)' },
+    { keys:['Ctrl','D'], description:'Duplicar clip' },
+    { keys:['G'], description:'Agrupar clips' },
+    { keys:['Ctrl','G'], description:'Desagrupar clips' },
+    // --- PISTAS ---
+    { keys:['Ctrl','Shift','N'], description:'Nueva pista multitrack' },
+    { keys:['Ctrl','Shift','M'], description:'Silenciar pista' },
+    { keys:['Ctrl','Shift','S'], description:'Solo pista' },
+    // --- MARCADORES ---
+    { keys:['M'], description:'Insertar marcador' },
+    { keys:['Shift','M'], description:'Ir al siguiente marcador' },
+    { keys:['Ctrl','Shift','M'], description:'Ir al marcador anterior' },
+    // --- EXPORTACIÓN ---
+    { keys:['Ctrl','E'], description:'Exportar archivo de audio' },
+    { keys:['Ctrl','Shift','E'], description:'Exportar mezcla multitrack' },
+    // --- NAVEGACIÓN / ZOOM ---
+    { keys:['F'], description:'Zoom a selección' },
+    { keys:['Ctrl','+'], description:'Zoom in' },
+    { keys:['Ctrl','-'], description:'Zoom out' },
+    { keys:['Ctrl','1'], description:'Zoom completo' },
+    // --- AUDIO PRO (CLAVE) ---
+    { keys:['Ctrl','L'], description:'Normalizar audio' },
+    { keys:['Ctrl','Shift','L'], description:'Normalización avanzada' },
+    { keys:['Ctrl','Shift','N'], description:'Reducir ruido (Noise reduction panel)' },
+    // --- SELECCIÓN ---
+    { keys:['Ctrl','A'], description:'Seleccionar todo' },
+    { keys:['Ctrl','Shift','A'], description:'Deseleccionar todo' },
+    // --- HISTORIAL ---
+    { keys:['Ctrl','Z'], description:'Deshacer' },
+    { keys:['Ctrl','Shift','Z'], description:'Rehacer' },
+    // --- FLUJO MULTITRACK ---
+    { keys:['Shift','D'], description:'Duplicar clip en multitrack' },
+    { keys:['Alt','Drag'], description:'Duplicación rápida de audio' },
   ]},
   { program:'Ableton Live', category:'audio', color:'#222', shortcuts:[
     { keys:['Tab'],              description:'Cambiar Session/Arrangement' },
@@ -524,6 +790,54 @@ const PROGRAMS = [
     { keys:['M'],                description:'Mover a colección' },
     { keys:['F12'],              description:'Renderizar frame' },
     { keys:['Ctrl','Alt','Num0'],description:'Alinear cámara a vista' },
+        // --- TRANSFORMACIONES ---
+    { keys:['G'], description:'Mover (Grab)' },
+    { keys:['R'], description:'Rotar' },
+    { keys:['S'], description:'Escalar' },
+    { keys:['E'], description:'Extruir' },
+    { keys:['I'], description:'Inset (insertar cara)' },
+    { keys:['K'], description:'Knife tool (cuchillo)' },
+    { keys:['Alt','S'], description:'Escalar en normales' },
+    // --- MODO Y EDICIÓN ---
+    { keys:['Tab'], description:'Cambiar Object/Edit Mode' },
+    { keys:['Ctrl','Tab'], description:'Menú de modos' },
+    { keys:['Ctrl','A'], description:'Aplicar transformación' },
+    // --- MODELADO AVANZADO ---
+    { keys:['Ctrl','R'], description:'Loop Cut' },
+    { keys:['Ctrl','B'], description:'Bevel (bisel)' },
+    { keys:['Ctrl','Shift','B'], description:'Bevel de vértice' },
+    { keys:['Ctrl','J'], description:'Unir objetos' },
+    { keys:['Ctrl','P'], description:'Parent (relacionar objetos)' },
+    // --- OCULTAR / VISUALIZACIÓN ---
+    { keys:['H'], description:'Ocultar selección' },
+    { keys:['Alt','H'], description:'Mostrar todo' },
+    { keys:['Shift','H'], description:'Ocultar no seleccionado' },
+    // --- NAVEGACIÓN 3D ---
+    { keys:['MMB'], description:'Orbitar cámara' },
+    { keys:['Shift','MMB'], description:'Mover vista (pan)' },
+    { keys:['Ctrl','MMB'], description:'Zoom continuo' },
+    // --- VISTAS ---
+    { keys:['Num1'], description:'Vista frontal' },
+    { keys:['Num3'], description:'Vista lateral' },
+    { keys:['Num7'], description:'Vista superior' },
+    { keys:['Num5'], description:'Cambiar ortográfico/perspectiva' },
+    { keys:['Ctrl','Alt','Num0'], description:'Alinear cámara a vista' },
+    // --- OBJETOS ---
+    { keys:['Shift','A'], description:'Añadir objeto/malla' },
+    { keys:['M'], description:'Mover a colección' },
+    { keys:['Shift','D'], description:'Duplicar objeto' },
+    { keys:['Alt','D'], description:'Duplicar enlazado' },
+    { keys:['X'], description:'Eliminar objeto' },
+    // --- SHADING / MATERIALS ---
+    { keys:['Z'], description:'Menú de sombreado (wireframe/material/render)' },
+    { keys:['Shift','Z'], description:'Render preview toggle' },
+    // --- RENDER ---
+    { keys:['F12'], description:'Renderizar frame' },
+    { keys:['Ctrl','F12'], description:'Renderizar animación' },
+    // --- ANIMACIÓN (BASE) ---
+    { keys:['I'], description:'Insertar keyframe' },
+    { keys:['Alt','I'], description:'Eliminar keyframe' },
+    { keys:['Space'], description:'Play / pausa timeline' },
   ]},
   { program:'Maya', category:'3d', color:'#0b1f22', shortcuts:[
     { keys:['Q'],                description:'Herramienta Selección' },
@@ -589,6 +903,47 @@ const PROGRAMS = [
     { keys:['G'],                description:'Crear Grupo/Componente' },
     { keys:['Z'],                description:'Zoom Extensión' },
     { keys:['K'],                description:'Mostrar sombras' },
+        // --- DIBUJO BÁSICO ---
+    { keys:['L'], description:'Línea' },
+    { keys:['R'], description:'Rectángulo' },
+    { keys:['C'], description:'Círculo' },
+    { keys:['A'], description:'Arco' },
+    { keys:['E'], description:'Borrador (Eraser)' },
+    // --- MODELADO 3D ---
+    { keys:['P'], description:'Push/Pull (extruir)' },
+    { keys:['F'], description:'Offset (desfase de cara)' },
+    { keys:['S'], description:'Escalar' },
+    { keys:['M'], description:'Mover' },
+    { keys:['Q'], description:'Rotar' },
+    // --- MEDICIÓN ---
+    { keys:['T'], description:'Cinta métrica' },
+    { keys:['Ctrl','T'], description:'Guías de medida' },
+    // --- ORGANIZACIÓN ---
+    { keys:['G'], description:'Crear grupo' },
+    { keys:['Shift','G'], description:'Crear componente' },
+    { keys:['Ctrl','G'], description:'Agrupar selección' },
+    // --- NAVEGACIÓN 3D ---
+    { keys:['O'], description:'Orbitar cámara' },
+    { keys:['H'], description:'Mano (pan)' },
+    { keys:['Z'], description:'Zoom extensión' },
+    { keys:['Shift','Z'], description:'Zoom ventana' },
+    // --- VISTAS ---
+    { keys:['1'], description:'Vista frontal' },
+    { keys:['2'], description:'Vista lateral' },
+    { keys:['3'], description:'Vista superior' },
+    { keys:['4'], description:'Vista isométrica' },
+    // --- EDICIÓN AVANZADA ---
+    { keys:['Ctrl','Z'], description:'Deshacer' },
+    { keys:['Ctrl','Y'], description:'Rehacer' },
+    { keys:['Ctrl','C'], description:'Copiar' },
+    { keys:['Ctrl','V'], description:'Pegar' },
+    { keys:['Delete'], description:'Eliminar' },
+    // --- SOMBRAS / RENDER ---
+    { keys:['K'], description:'Activar/desactivar sombras' },
+    { keys:['Ctrl','Shift','L'], description:'Estilos de visualización' },
+    // --- PRECISIÓN ---
+    { keys:['Shift'], description:'Bloquear eje de movimiento' },
+    { keys:['Alt'], description:'Inferencia alternativa (snap inteligente)' },
   ]},
   { program:'BluffTitler', category:'3d', color:'#1c2e40', shortcuts:[
     { keys:['Espacio'],          description:'Play / Pausa' },
@@ -601,6 +956,44 @@ const PROGRAMS = [
     { keys:['F1'],               description:'Vista frontal' },
     { keys:['F2'],               description:'Vista lateral' },
     { keys:['F3'],               description:'Vista superior' },
+        // --- REPRODUCCIÓN ---
+    { keys:['Espacio'], description:'Play / pausa' },
+    { keys:['Ctrl','R'], description:'Reproducir desde inicio' },
+    // --- PROYECTO ---
+    { keys:['Ctrl','S'], description:'Guardar proyecto' },
+    { keys:['Ctrl','Shift','S'], description:'Guardar como' },
+    { keys:['Ctrl','Z'], description:'Deshacer' },
+    { keys:['Ctrl','Y'], description:'Rehacer' },
+    // --- CAPAS ---
+    { keys:['Ctrl','C'], description:'Copiar capa' },
+    { keys:['Ctrl','V'], description:'Pegar capa' },
+    { keys:['Ctrl','D'], description:'Duplicar capa' },
+    { keys:['Delete'], description:'Eliminar capa seleccionada' },
+    // --- ANIMACIÓN ---
+    { keys:['F6'], description:'Añadir keyframe' },
+    { keys:['F7'], description:'Eliminar keyframe' },
+    { keys:['Ctrl','F6'], description:'Auto keyframe activado/desactivado' },
+    // --- TIMELINE ---
+    { keys:['←'], description:'Mover frame anterior' },
+    { keys:['→'], description:'Mover frame siguiente' },
+    { keys:['Shift','←'], description:'Saltar 10 frames atrás' },
+    { keys:['Shift','→'], description:'Saltar 10 frames adelante' },
+    // --- EXPORTACIÓN ---
+    { keys:['F5'], description:'Exportar video' },
+    { keys:['Ctrl','F5'], description:'Exportación rápida render' },
+    // --- VISTAS 3D ---
+    { keys:['F1'], description:'Vista frontal' },
+    { keys:['F2'], description:'Vista lateral' },
+    { keys:['F3'], description:'Vista superior' },
+    { keys:['F4'], description:'Vista perspectiva' },
+    // --- CONTROL DE ESCENA ---
+    { keys:['Ctrl','F'], description:'Pantalla completa preview' },
+    { keys:['Alt','Arrastrar'], description:'Mover cámara/escena' },
+    { keys:['Mouse Wheel'], description:'Zoom de escena' },
+    // --- OBJETOS ---
+    { keys:['Ctrl','Shift','C'], description:'Convertir a objeto editable' },
+    { keys:['Ctrl','L'], description:'Bloquear capa' },
+    { keys:['Ctrl','Shift','L'], description:'Desbloquear todo' },
   ]},
 
   // ── INGENIERÍA ──────────────────────────────────────────
@@ -622,6 +1015,51 @@ const PROGRAMS = [
     { keys:['DI','Enter'],       description:'Distancia entre dos puntos' },
     { keys:['LA','Enter'],       description:'Administrador de capas' },
     { keys:['PE','Enter'],       description:'Editar Polilínea' },
+      // --- DIBUJO BÁSICO ---
+    { keys:['L','Enter'], description:'Línea (Line)' },
+    { keys:['C','Enter'], description:'Círculo' },
+    { keys:['REC','Enter'], description:'Rectángulo' },
+    { keys:['PL','Enter'], description:'Polilínea' },
+    { keys:['A','Enter'], description:'Arco' },
+    // --- MODIFICACIÓN ---
+    { keys:['TR','Enter'], description:'Recortar (Trim)' },
+    { keys:['EX','Enter'], description:'Extender (Extend)' },
+    { keys:['O','Enter'], description:'Desfase (Offset)' },
+    { keys:['M','Enter'], description:'Mover' },
+    { keys:['CO','Enter'], description:'Copiar' },
+    { keys:['MI','Enter'], description:'Espejo (Mirror)' },
+    { keys:['AR','Enter'], description:'Matriz (Array)' },
+    { keys:['RO','Enter'], description:'Rotar' },
+    { keys:['S','Enter'], description:'Escalar' },
+    { keys:['PE','Enter'], description:'Editar polilínea' },
+    // --- PRECISIÓN / SNAP ---
+    { keys:['F3'], description:'OSNAP (Snap a objetos)' },
+    { keys:['F8'], description:'Modo orto (líneas rectas)' },
+    { keys:['F10'], description:'Seguimiento polar' },
+    { keys:['F11'], description:'Snap a objetos 3D (si aplica)' },
+    // --- ZOOM / VISTAS ---
+    { keys:['Z','E','Enter'], description:'Zoom extensión' },
+    { keys:['Z','A','Enter'], description:'Zoom todo' },
+    { keys:['Z','W','Enter'], description:'Zoom ventana' },
+    { keys:['Ctrl','0'], description:'Limpiar pantalla (vista máxima)' },
+    // --- MEDICIÓN ---
+    { keys:['DI','Enter'], description:'Distancia entre puntos' },
+    { keys:['AA','Enter'], description:'Área' },
+    { keys:['ID','Enter'], description:'Coordenadas de punto' },
+    // --- CAPAS (MUY IMPORTANTE) ---
+    { keys:['LA','Enter'], description:'Administrador de capas' },
+    { keys:['Ctrl','1'], description:'Propiedades de objeto' },
+    { keys:['Ctrl','Shift','C'], description:'Copiar propiedades' },
+    { keys:['Ctrl','Shift','V'], description:'Pegar propiedades' },
+    // --- HATCH / SOMBREADO ---
+    { keys:['H','Enter'], description:'Sombreado (Hatch)' },
+    // --- UTILIDAD PRO ---
+    { keys:['U','Enter'], description:'Deshacer' },
+    { keys:['Ctrl','Y'], description:'Rehacer' },
+    { keys:['Ctrl','S'], description:'Guardar' },
+    // --- EDICIÓN AVANZADA ---
+    { keys:['X','Enter'], description:'Explode (descomponer objetos)' },
+    { keys:['J','Enter'], description:'Unir objetos' },
   ]},
   { program:'SolidWorks', category:'engineering', color:'#C0392B', shortcuts:[
     { keys:['S'],                description:'Atajos Inteligentes (S-key)' },
