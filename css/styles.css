@@ -174,7 +174,6 @@
 
   #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 40; }
 
-<<<<<<< HEAD
   /* BACK TO TOP */
   #back-to-top {
     position: fixed;
@@ -206,11 +205,11 @@
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(99,102,241,0.5);
   }
-=======
+
   /* HOME BUTTON */
-  #btn-home { width: 38px; height: 38px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text-dim); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; }
-  #btn-home:hover { background: rgba(99,102,241,0.15); color: var(--accent2); border-color: var(--border-hover); }
-  #btn-home svg { display: block; }
+  #btn-home-header { width: 38px; height: 38px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text-dim); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; }
+  #btn-home-header:hover { background: rgba(99,102,241,0.15); color: var(--accent2); border-color: var(--border-hover); }
+  #btn-home-header svg { display: block; }
 
   /* SEARCH SUGGESTIONS */
   .suggestions { display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: var(--surface); border: 1px solid var(--border-hover); border-radius: 12px; box-shadow: 0 16px 48px rgba(0,0,0,0.5); z-index: 100; max-height: 320px; overflow-y: auto; }
@@ -220,7 +219,6 @@
   .sug-item { padding: 9px 14px; cursor: pointer; font-size: 13px; color: var(--text-dim); display: flex; justify-content: space-between; align-items: center; transition: background 0.1s; }
   .sug-item:hover, .sug-item.sug-active { background: rgba(99,102,241,0.1); color: #fff; }
   .sug-cat { font-size: 10px; color: var(--text-muted); font-family: 'Space Mono', monospace; }
-  .search-wrap { position: relative; }
 
   /* KEYBOARD SHORTCUTS HINT */
   .kbd-hint { position: fixed; bottom: 20px; right: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; z-index: 30; font-size: 11px; color: var(--text-muted); box-shadow: 0 8px 32px rgba(0,0,0,0.4); max-width: 260px; display: none; }
@@ -230,15 +228,41 @@
   .kbd-hint-row kbd { background: var(--kbd-bg); border: 1px solid var(--kbd-border); border-bottom: 2px solid var(--kbd-shadow); border-radius: 4px; padding: 1px 5px; font-family: 'Space Mono', monospace; font-size: 9px; color: #c7d2fe; }
   .kbd-hint-close { position: absolute; top: 8px; right: 10px; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 16px; line-height: 1; }
   .kbd-hint-close:hover { color: #fff; }
->>>>>>> 53d36da548380e1b581bd43bd0840e4bd10acf58
+
+  @media (max-width: 1024px) {
+    :root { --sidebar-w: 240px; }
+    #grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  }
 
   @media (max-width: 768px) {
-    #sidebar { position: fixed; inset-y: 0; left: 0; transform: translateX(-100%); animation: none; }
+    #sidebar { position: fixed; inset: 0 auto 0 0; transform: translateX(-100%); animation: none; }
     #sidebar.open { transform: translateX(0); }
     #overlay.open { display: block; }
     #mobile-toggle { display: flex; }
     #content { padding: 16px 12px; }
     #header { padding: 10px 12px; }
     #grid { grid-template-columns: 1fr; }
-    .content-header h2 { font-size: clamp(15px, 5vw, 22px); letter-spacing: -0.5px; }
+    .content-header h2 { font-size: clamp(20px, 6vw, 28px); letter-spacing: -0.5px; white-space: normal; }
+    .header-right { padding: 2px; }
+    .view-btn { width: 28px; height: 28px; }
+    .logo-area { padding: 15px 12px; }
+    .stats-row { gap: 10px; }
+    .stat-num { font-size: 16px; }
+    #back-to-top { bottom: 20px; right: 20px; width: 38px; height: 38px; }
+    .search-wrap { order: 3; width: 100%; flex: none; margin-top: 8px; }
+    #header { flex-wrap: wrap; }
+    .header-right { margin-left: auto; }
+    .kbd-hint { left: 20px; right: 20px; max-width: none; bottom: 80px; }
+  }
+
+  @media (max-width: 480px) {
+    .content-header h2 { font-size: 18px; }
+    .card-header { padding: 12px; }
+    .card-icon { width: 36px; height: 36px; }
+    .card-icon svg { width: 36px; height: 36px; }
+    .card-meta h3 { font-size: 14px; }
+    .card-count { font-size: 8px; padding: 2px 6px; }
+    .shortcut-desc { font-size: 12px; }
+    kbd { font-size: 10px; padding: 2px 6px; }
+    .keys-group { max-width: 140px; }
   }
