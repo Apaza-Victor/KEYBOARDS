@@ -38,6 +38,11 @@
           <line x1="2" y1="13.5" x2="16" y2="13.5"/>
         </svg>
       </button>
+      <button id="btn-home" onclick="goHome()" title="Inicio (H)" aria-label="Ir a inicio">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 8L8 2L14 8V14H10V10H6V14H2V8Z"/>
+        </svg>
+      </button>
       <div class="search-wrap">
         <span class="search-icon">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
@@ -45,7 +50,8 @@
             <line x1="9.5" y1="9.5" x2="13" y2="13"/>
           </svg>
         </span>
-        <input type="text" id="search" placeholder="Buscar programa o función..." oninput="renderGrid()">
+        <input type="text" id="search" placeholder="Buscar programa o función... (Ctrl+K)" oninput="renderGrid(); showSuggestions()" autocomplete="off">
+        <div id="suggestions" class="suggestions"></div>
       </div>
       <div class="header-right">
         <button class="view-btn active" id="btn-grid" onclick="setView('grid')" title="Cuadrícula">
@@ -79,6 +85,19 @@
   </main>
 </div>
 <div id="overlay" onclick="closeSidebar()"></div>
+<div id="kbd-hint" class="kbd-hint">
+  <button class="kbd-hint-close" onclick="toggleKbdHint()">×</button>
+  <h4>ATAJOS DEL SITIO</h4>
+  <div class="kbd-hint-row"><span>Buscar</span><kbd>/</kbd> <kbd>Ctrl+K</kbd></div>
+  <div class="kbd-hint-row"><span>Inicio</span><kbd>H</kbd></div>
+  <div class="kbd-hint-row"><span>Volver arriba</span><kbd>T</kbd></div>
+  <div class="kbd-hint-row"><span>Vista cuadrícula</span><kbd>G</kbd></div>
+  <div class="kbd-hint-row"><span>Vista lista</span><kbd>L</kbd></div>
+  <div class="kbd-hint-row"><span>Menú lateral</span><kbd>S</kbd></div>
+  <div class="kbd-hint-row"><span>Categorías</span><kbd>1-9</kbd></div>
+  <div class="kbd-hint-row"><span>Cerrar/Limpiar</span><kbd>Esc</kbd></div>
+  <div class="kbd-hint-row"><span>Mostrar ayuda</span><kbd>?</kbd></div>
+</div>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>
