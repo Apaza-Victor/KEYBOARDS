@@ -28,42 +28,56 @@ function buildNav(){
 }
 
 function selectCategory(catId){
-  activeCategory=catId;
+  if (!catId) return;
+  activeCategory = catId;
   
-  // Limpiar estados activos de todos los botones de navegación
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  const btnHomeHeader = document.getElementById('btn-home-header');
-  if (btnHomeHeader) btnHomeHeader.classList.remove('active');
+  // 1. Limpiar estados activos de TODOS los botones de navegación
+  // Buscamos tanto los estáticos como los dinámicos
+  const allNavBtns = document.querySelectorAll('.nav-btn, #btn-home, #btn-home-header');
+  allNavBtns.forEach(btn => btn.classList.remove('active'));
 
+  // 2. Aplicar estado activo al botón correcto
   if (catId === 'all') {
     const btnHome = document.getElementById('btn-home');
+    const btnHomeHeader = document.getElementById('btn-home-header');
     if (btnHome) btnHome.classList.add('active');
     if (btnHomeHeader) btnHomeHeader.classList.add('active');
   } else {
-    const btn = document.querySelector(`.nav-btn[data-id="${catId}"]`);
-    if (btn) btn.classList.add('active');
+    // Buscar por el atributo data-id que pusimos en buildNav
+    const targetBtn = document.querySelector(`.nav-btn[data-id="${catId}"]`);
+    if (targetBtn) {
+      targetBtn.classList.add('active');
+    }
   }
 
+  // 3. Actualizar interfaz (Títulos y Eyebrow)
   const h2 = document.getElementById('category-title');
+  const eyebrow = document.getElementById('eyebrow-text');
+  const cat = CATEGORIES.find(c => c.id === catId);
+
   if (h2) {
     h2.style.animation = 'none';
     h2.offsetHeight; // trigger reflow
     h2.style.animation = '';
+    h2.textContent = cat ? cat.name : 'Todos los Programas';
   }
   
-  const cat=CATEGORIES.find(c=>c.id===catId);
-  if (h2) h2.textContent=cat?cat.name:'Todos los Programas';
-  
-  const eyebrow = document.getElementById('eyebrow-text');
   if (eyebrow) {
-    eyebrow.textContent=catId==='all'?'LISTADO COMPLETO':(cat?cat.icon+' '+cat.name.toUpperCase():'');
+    eyebrow.textContent = catId === 'all' ? 'LISTADO COMPLETO' : (cat ? cat.icon + ' ' + cat.name.toUpperCase() : '');
   }
   
-  document.getElementById('search').value='';
+  // 4. Resetear búsqueda y filtrar
+  document.getElementById('search').value = '';
   hideSuggestions();
   renderGrid(); 
+  
+  // 5. Utilidades de navegación
   closeSidebar();
   updateHash();
+  
+  // Scroll al inicio del contenido al cambiar de categoría
+  const content = document.getElementById('content');
+  if (content) content.scrollTop = 0;
 }
 
 function goHome(){
