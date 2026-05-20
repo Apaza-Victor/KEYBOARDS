@@ -76,6 +76,8 @@ const ICONS = {
   // ── STREAMING ──
   'OBS Studio': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#1a1a2e"/><circle cx="22" cy="22" r="14" fill="none" stroke="#302e31" stroke-width="3"/><circle cx="22" cy="22" r="9" fill="none" stroke="#6366f1" stroke-width="2.5"/><circle cx="22" cy="22" r="4" fill="#6366f1"/></svg>`,
   'Streamlabs': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#09aaef"/><path d="M22 8 L33 24 L28 24 L28 36 L16 36 L16 24 L11 24Z" fill="white"/></svg>`,
+  'Windows 11': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#0078d4"/><rect x="10" y="10" width="11" height="11" fill="#fff"/><rect x="23" y="10" width="11" height="11" fill="#fff"/><rect x="10" y="23" width="11" height="11" fill="#fff"/><rect x="23" y="23" width="11" height="11" fill="#fff"/></svg>`,
+  'Spotify': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#1db954"/><path d="M32 18 c-6 -3 -14 -3 -20 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M30 23 c-5 -2 -11 -2 -16 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M28 28 c-4 -1 -9 -1 -12 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`,
 };
 
 // ═══════════════════════════════════════════════════════════
@@ -1107,5 +1109,32 @@ const PROGRAMS = [
     { keys:['Ctrl','1'],         description:'Escena 1' },
     { keys:['Ctrl','2'],         description:'Escena 2' },
     { keys:['Ctrl','Shift','T'], description:'Activar Cámara Virtual' },
+  ]},
+  { program:'Windows 11', category:'os', color:'#0078d4', shortcuts:[
+    { keys:['Win','E'],          description:'Abrir Explorador de archivos' },
+    { keys:['Win','D'],          description:'Mostrar Escritorio' },
+    { keys:['Win','L'],          description:'Bloquear equipo' },
+    { keys:['Win','R'],          description:'Abrir Ejecutar' },
+    { keys:['Win','S'],          description:'Abrir Búsqueda' },
+    { keys:['Win','I'],          description:'Abrir Configuración' },
+    { keys:['Win','V'],          description:'Historial del portapapeles' },
+    { keys:['Win','X'],          description:'Menú de acceso rápido' },
+    { keys:['Win','Tab'],        description:'Vista de tareas' },
+    { keys:['Alt','Tab'],        description:'Cambiar entre ventanas' },
+    { keys:['Ctrl','Shift','Esc'],description:'Administrador de tareas' },
+    { keys:['Win','↑'],          description:'Maximizar ventana' },
+    { keys:['Win','←/→'],        description:'Ajustar ventana a los lados' },
+    { keys:['Win','Shift','S'],  description:'Recorte de pantalla' },
+    { keys:['Win','.',';'],      description:'Selector de Emojis' },
+    { keys:['Win','L'],          description:'Cerrar sesión' },
+  ]},
+  { program:'Spotify', category:'os', color:'#1db954', shortcuts:[
+    { keys:['Espacio'],          description:'Reproducir / Pausa' },
+    { keys:['Ctrl','→'],         description:'Siguiente canción' },
+    { keys:['Ctrl','←'],         description:'Canción anterior' },
+    { keys:['Ctrl','↑'],         description:'Subir volumen' },
+    { keys:['Ctrl','↓'],         description:'Bajar volumen' },
+    { keys:['Ctrl','L'],         description:'Repetir canción' },
+    { keys:['Ctrl','S'],         description:'Modo aleatorio' },
   ]},
 ]; // ← Fin del array. Añade nuevos programas antes de este cierre.
