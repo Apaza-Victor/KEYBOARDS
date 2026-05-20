@@ -245,6 +245,73 @@ const PROGRAMS = [
     { keys:['['],                    description:'Reducir tamaño de pincel' },
     { keys:[']'],                    description:'Aumentar tamaño de pincel' },
     { keys:['Ctrl','Shift','N'],     description:'Nueva capa vacía' },
+<<<<<<< HEAD
+=======
+    { keys: ['Ctrl','Alt','G'], description: 'Máscara de recorte' },
+    { keys: ['Ctrl','Shift','Alt','N'], description: 'Nueva capa sin diálogo' },
+    { keys: ['Ctrl','Alt','Shift','S'], description: 'Guardar para web' },
+    { keys: ['Alt','Scroll'], description: 'Zoom suave' },
+    { keys: ['Shift','Backspace'], description: 'Relleno inteligente' },
+    { keys: ['Ctrl','Alt','I'], description: 'Tamaño de imagen' },
+        // --- SELECCIÓN Y MOVIMIENTO ---
+    { keys:['V'], description:'Mover herramienta' },
+    { keys:['M'], description:'Marco rectangular / elíptico' },
+    { keys:['Ctrl','D'], description:'Deseleccionar' },
+    { keys:['Ctrl','Shift','D'], description:'Volver a seleccionar' },
+    { keys:['Ctrl','A'], description:'Seleccionar todo' },
+    { keys:['Ctrl','Shift','A'], description:'Deseleccionar todo' },
+    { keys:['Ctrl','Alt','A'], description:'Seleccionar todas las capas' },
+    { keys:['Shift','Click'], description:'Añadir a selección' },
+    { keys:['Alt','Click'], description:'Restar de selección' },
+    // --- CAPAS (MUY IMPORTANTES) ---
+    { keys:['Ctrl','Shift',']'], description:'Traer capa al frente' },
+    { keys:['Ctrl','Shift','['], description:'Enviar capa atrás' },
+    { keys:['Ctrl',']'], description:'Subir capa un nivel' },
+    { keys:['Ctrl','['], description:'Bajar capa un nivel' },
+    { keys:['Ctrl','E'], description:'Combinar capas' },
+    { keys:['Ctrl','Shift','E'], description:'Combinar visibles' },
+    { keys:['Ctrl','Alt','Shift','E'], description:'Stamp visible (capa combinada editable)' },
+    { keys:['Ctrl','Shift','G'], description:'Desagrupar capas' },
+    { keys:['Ctrl','Alt','G'], description:'Crear máscara de recorte' },
+    // --- HERRAMIENTAS ---
+    { keys:['I'], description:'Cuentagotas' },
+    { keys:['G'], description:'Bote de pintura / degradado' },
+    { keys:['K'], description:'Cubo 3D / herramienta secundaria' },
+    { keys:['C'], description:'Recortar (Crop)' },
+    { keys:['P'], description:'Pluma (Pen tool)' },
+    { keys:['T'], description:'Texto' },
+    { keys:['H'], description:'Mano (Hand tool)' },
+    { keys:['Z'], description:'Zoom' },
+    // --- TRANSFORMACIÓN ---
+    { keys:['Ctrl','Alt','T'], description:'Transformación con copia' },
+    { keys:['Ctrl','Shift','T'], description:'Repetir transformación' },
+    { keys:['Ctrl','0'], description:'Ajustar pantalla' },
+    { keys:['Ctrl','1'], description:'Zoom 100%' },
+    // --- HISTORIAL Y DESHACER ---
+    { keys:['Ctrl','Z'], description:'Deshacer / rehacer (toggle)' },
+    { keys:['Ctrl','Alt','Z'], description:'Paso atrás múltiple' },
+    { keys:['Ctrl','Shift','Z'], description:'Paso adelante' },
+    // --- SELECCIÓN AVANZADA ---
+    { keys:['Ctrl','Shift','J'], description:'Cortar en nueva capa' },
+    { keys:['Ctrl','Shift','Alt','R'], description:'Seleccionar y aplicar máscara' },
+    // --- RELLENO Y EDICIÓN ---
+    { keys:['Shift','F5'], description:'Rellenar' },
+    { keys:['Shift','F6'], description:'Desvanecer selección' },
+    { keys:['Alt','Backspace'], description:'Relleno según contenido (frontal)' },
+    // --- GUARDADO / EXPORTACIÓN ---
+    { keys:['Ctrl','S'], description:'Guardar' },
+    { keys:['Ctrl','Shift','S'], description:'Guardar como' },
+    { keys:['Ctrl','Alt','Shift','S'], description:'Exportar para web' },
+    { keys:['Ctrl','Alt','S'], description:'Guardar copia' },
+    // --- NAVEGACIÓN ---
+    { keys:['Space'], description:'Mano temporal (mover lienzo)' },
+    { keys:['Ctrl','+'], description:'Acercar zoom' },
+    { keys:['Ctrl','-'], description:'Alejar zoom' },
+    // --- MASCARAS Y AJUSTES ---
+    { keys:['Ctrl','I'], description:'Invertir imagen' },
+    { keys:['Ctrl','Shift','U'], description:'Desaturar' },
+    { keys:['Ctrl','Alt','Shift','B'], description:'Blanco y negro automático' },
+>>>>>>> 53d36da548380e1b581bd43bd0840e4bd10acf58
   ]},
   { program:'Illustrator', category:'graphic', color:'#300', shortcuts:[
     { keys:['P'],                description:'Herramienta Pluma' },
