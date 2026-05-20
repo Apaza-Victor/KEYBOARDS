@@ -20,6 +20,7 @@ function buildNav(){
     if (cat.id === 'all') return; 
     const btn=document.createElement('button');
     btn.className='nav-btn'+(cat.id===activeCategory?' active':'');
+    btn.setAttribute('data-id', cat.id);
     btn.innerHTML=`<span class="nav-icon">${cat.icon}</span><span>${cat.name}</span><span class="nav-count">${counts[cat.id]||0}</span>`;
     btn.onclick=()=>selectCategory(cat.id);
     nav.appendChild(btn);
@@ -28,29 +29,35 @@ function buildNav(){
 
 function selectCategory(catId){
   activeCategory=catId;
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   
-  const btnHome = document.getElementById('btn-home');
+  // Limpiar estados activos de todos los botones de navegación
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   const btnHomeHeader = document.getElementById('btn-home-header');
+  if (btnHomeHeader) btnHomeHeader.classList.remove('active');
+
   if (catId === 'all') {
+    const btnHome = document.getElementById('btn-home');
     if (btnHome) btnHome.classList.add('active');
     if (btnHomeHeader) btnHomeHeader.classList.add('active');
   } else {
-    if (btnHome) btnHome.classList.remove('active');
-    if (btnHomeHeader) btnHomeHeader.classList.remove('active');
-    const btns = document.querySelectorAll('.nav-btn');
-    const catIdx = CATEGORIES.filter(c => c.id !== 'all').findIndex(c => c.id === catId);
-    if(btns[catIdx]) btns[catIdx].classList.add('active');
+    const btn = document.querySelector(`.nav-btn[data-id="${catId}"]`);
+    if (btn) btn.classList.add('active');
   }
 
   const h2 = document.getElementById('category-title');
-  h2.style.animation = 'none';
-  h2.offsetHeight;
-  h2.style.animation = '';
+  if (h2) {
+    h2.style.animation = 'none';
+    h2.offsetHeight; // trigger reflow
+    h2.style.animation = '';
+  }
   
   const cat=CATEGORIES.find(c=>c.id===catId);
-  h2.textContent=cat?cat.name:'Todos los Programas';
-  document.getElementById('eyebrow-text').textContent=catId==='all'?'LISTADO COMPLETO':(cat?cat.icon+' '+cat.name.toUpperCase():'');
+  if (h2) h2.textContent=cat?cat.name:'Todos los Programas';
+  
+  const eyebrow = document.getElementById('eyebrow-text');
+  if (eyebrow) {
+    eyebrow.textContent=catId==='all'?'LISTADO COMPLETO':(cat?cat.icon+' '+cat.name.toUpperCase():'');
+  }
   
   document.getElementById('search').value='';
   hideSuggestions();
