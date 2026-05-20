@@ -16,74 +16,52 @@ function buildNav(){
   const counts=getCatCounts();
   const nav=document.getElementById('nav-list');
   nav.innerHTML='';
-<<<<<<< HEAD
-  CATEGORIES.forEach(cat=>{
-    if (cat.id === 'all') return; // Saltamos "Todos" porque ahora tenemos Home
-    const btn=document.createElement('button');
-    btn.className='nav-btn'+(cat.id===activeCategory?' active':'');
-    btn.innerHTML=`<span class="nav-icon">${cat.icon}</span><span>${cat.name}</span><span class="nav-count">${counts[cat.id]||0}</span>`;
-    btn.onclick=()=>{
-      activeCategory=cat.id;
-      updateActiveBtn(btn);
-      const h2 = document.getElementById('category-title');
-      h2.style.animation = 'none';
-      h2.offsetHeight; // reflow
-      h2.style.animation = '';
-      h2.textContent=cat.name;
-      document.getElementById('eyebrow-text').textContent=cat.icon+' '+cat.name.toUpperCase();
-      renderGrid(); closeSidebar();
-    };
-=======
   CATEGORIES.forEach((cat,idx)=>{
+    if (cat.id === 'all') return; 
     const btn=document.createElement('button');
     btn.className='nav-btn'+(cat.id===activeCategory?' active':'');
     btn.innerHTML=`<span class="nav-icon">${cat.icon}</span><span>${cat.name}</span><span class="nav-count">${counts[cat.id]||0}</span>`;
-    btn.onclick=()=>selectCategory(cat.id, idx);
->>>>>>> 53d36da548380e1b581bd43bd0840e4bd10acf58
+    btn.onclick=()=>selectCategory(cat.id);
     nav.appendChild(btn);
   });
 }
 
-<<<<<<< HEAD
-function updateActiveBtn(activeBtn) {
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  if (activeBtn) activeBtn.classList.add('active');
-}
-
-function goHome() {
-  activeCategory = 'all';
-  updateActiveBtn(document.getElementById('btn-home'));
-  document.getElementById('category-title').textContent = 'Todos los Programas';
-  document.getElementById('eyebrow-text').textContent = 'LISTADO COMPLETO';
-  document.getElementById('search').value = '';
-  renderGrid();
-  closeSidebar();
-=======
-function selectCategory(catId, idx){
+function selectCategory(catId){
   activeCategory=catId;
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  const btns=document.querySelectorAll('.nav-btn');
-  if(btns[idx]) btns[idx].classList.add('active');
+  
+  const btnHome = document.getElementById('btn-home');
+  const btnHomeHeader = document.getElementById('btn-home-header');
+  if (catId === 'all') {
+    if (btnHome) btnHome.classList.add('active');
+    if (btnHomeHeader) btnHomeHeader.classList.add('active');
+  } else {
+    if (btnHome) btnHome.classList.remove('active');
+    if (btnHomeHeader) btnHomeHeader.classList.remove('active');
+    const btns = document.querySelectorAll('.nav-btn');
+    const catIdx = CATEGORIES.filter(c => c.id !== 'all').findIndex(c => c.id === catId);
+    if(btns[catIdx]) btns[catIdx].classList.add('active');
+  }
+
   const h2 = document.getElementById('category-title');
   h2.style.animation = 'none';
   h2.offsetHeight;
   h2.style.animation = '';
+  
   const cat=CATEGORIES.find(c=>c.id===catId);
   h2.textContent=cat?cat.name:'Todos los Programas';
   document.getElementById('eyebrow-text').textContent=catId==='all'?'LISTADO COMPLETO':(cat?cat.icon+' '+cat.name.toUpperCase():'');
+  
   document.getElementById('search').value='';
   hideSuggestions();
-  renderGrid(); closeSidebar();
+  renderGrid(); 
+  closeSidebar();
   updateHash();
 }
 
 function goHome(){
-  selectCategory('all', 0);
-  document.getElementById('search').value='';
+  selectCategory('all');
   document.getElementById('content').scrollTop=0;
-  hideSuggestions();
-  renderGrid();
->>>>>>> 53d36da548380e1b581bd43bd0840e4bd10acf58
 }
 
 function buildStats(){
@@ -101,22 +79,16 @@ function renderGrid(){
   const q=document.getElementById('search').value.toLowerCase().trim();
   const grid=document.getElementById('grid');
   
-  // Si hay búsqueda, forzamos vista "all" para que sea global, 
-  // pero solo si el usuario no ha seleccionado una categoría específica recientemente
-  // O mejor aún: si hay búsqueda, filtramos sin importar la categoría activa 
-  // pero visualmente mostramos que estamos buscando en todo.
-  
   const filtered=PROGRAMS.filter(p=>{
     const matchesQuery = !q || p.program.toLowerCase().includes(q) || 
                          p.shortcuts.some(s=>s.description.toLowerCase().includes(q) || 
                          s.keys.some(k=>k.toLowerCase().includes(q)));
     
-    if (q) return matchesQuery; // Búsqueda global si hay texto
+    if (q) return matchesQuery; 
     if (activeCategory !== 'all' && p.category !== activeCategory) return false;
     return true;
   }).sort((a,b)=>a.program.localeCompare(b.program));
 
-  // Actualizar título si hay búsqueda
   const h2 = document.getElementById('category-title');
   const eyebrow = document.getElementById('eyebrow-text');
   
@@ -142,19 +114,17 @@ function renderGrid(){
     card.className='card';
     card.setAttribute('tabindex','0');
     card.style.animationDelay=`${Math.min(idx*35,350)}ms`;
+    
     const shortcuts=q?prog.shortcuts.filter(s=>s.description.toLowerCase().includes(q)||s.keys.some(k=>k.toLowerCase().includes(q))):prog.shortcuts;
+    
     const rows=shortcuts.map(sh=>{
-<<<<<<< HEAD
-      const keysHtml=sh.keys.map((k,ki)=>`<kbd>${highlight(escH(k),q)}</kbd>${ki<sh.keys.length-1?'<span class="key-sep">+</span>':''}`).join('');
-      return `<li class="shortcut-row"><span class="shortcut-desc">${highlight(escH(sh.description),q)}</span><div class="keys-group">${keysHtml}</div></li>`;
-=======
       const keysHtml=sh.keys.map((k,ki)=>{
         const keyLabel=k===' '?'Espacio':k;
-        return `<kbd data-keys='${escH(k)}'>${escH(keyLabel)}</kbd>${ki<sh.keys.length-1?'<span class="key-sep">+</span>':''}`;
+        return `<kbd data-keys='${escH(k)}'>${highlight(escH(keyLabel),q)}</kbd>${ki<sh.keys.length-1?'<span class="key-sep">+</span>':''}`;
       }).join('');
-      return `<li class="shortcut-row"><span class="shortcut-desc">${escH(sh.description)}</span><div class="keys-group">${keysHtml}</div></li>`;
->>>>>>> 53d36da548380e1b581bd43bd0840e4bd10acf58
+      return `<li class="shortcut-row"><span class="shortcut-desc">${highlight(escH(sh.description),q)}</span><div class="keys-group">${keysHtml}</div></li>`;
     }).join('');
+
     card.innerHTML=`
       <div class="card-header">
         ${getIcon(prog.program,prog.color)}
@@ -202,7 +172,6 @@ function setView(mode){
 function toggleSidebar(){ document.getElementById('sidebar').classList.toggle('open'); document.getElementById('overlay').classList.toggle('open'); }
 function closeSidebar(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); }
 
-<<<<<<< HEAD
 function scrollToTop() {
   document.getElementById('content').scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -217,11 +186,10 @@ document.getElementById('content').addEventListener('scroll', (e) => {
   }
 });
 
-buildNav(); buildStats(); renderGrid();
-=======
 function showSuggestions(){
   const q=document.getElementById('search').value.toLowerCase().trim();
   const sug=document.getElementById('suggestions');
+  if(!sug) return;
   if(!q || q.length<1){ hideSuggestions(); return; }
   const matches=PROGRAMS.filter(p=>p.program.toLowerCase().includes(q)).slice(0,6);
   const descMatches=PROGRAMS.filter(p=>p.shortcuts.some(s=>s.description.toLowerCase().includes(q))&&!p.program.toLowerCase().includes(q)).slice(0,4);
@@ -243,20 +211,16 @@ function showSuggestions(){
   sug.innerHTML=html;
   sug.style.display='block';
 }
->>>>>>> 53d36da548380e1b581bd43bd0840e4bd10acf58
 
 function hideSuggestions(){
-  document.getElementById('suggestions').style.display='none';
+  const sug = document.getElementById('suggestions');
+  if(sug) sug.style.display='none';
 }
 
 function selectSuggestion(program){
   document.getElementById('search').value=program;
   hideSuggestions();
   renderGrid();
-}
-
-function scrollToTop(){
-  document.getElementById('content').scrollTop=0;
 }
 
 function updateHash(){
@@ -272,11 +236,21 @@ function handleHash(){
   if(hash){
     const cat=CATEGORIES.find(c=>c.id===hash);
     if(cat){
-      const idx=CATEGORIES.indexOf(cat);
-      selectCategory(hash,idx);
+      selectCategory(hash);
     }
   }
 }
+
+function toggleKbdHint(){
+  const hint = document.getElementById('kbd-hint');
+  if (hint) hint.classList.toggle('show');
+}
+
+// Event Listeners
+document.getElementById('search').oninput = () => {
+  renderGrid();
+  showSuggestions();
+};
 
 document.addEventListener('keydown',(e)=>{
   const tag=document.activeElement.tagName;
@@ -295,7 +269,8 @@ document.addEventListener('keydown',(e)=>{
   }
 
   if(e.key==='Escape'){
-    if(document.getElementById('suggestions').style.display==='block'){
+    const sug = document.getElementById('suggestions');
+    if(sug && sug.style.display==='block'){
       hideSuggestions();
     } else {
       closeSidebar();
@@ -309,59 +284,26 @@ document.addEventListener('keydown',(e)=>{
     if(e.key==='h'||e.key==='H'){
       goHome();
     }
-
     if(e.key==='g'||e.key==='G'){
       setView('grid');
     }
-
     if(e.key==='l'||e.key==='L'){
       setView('list');
     }
-
     if(e.key==='t'||e.key==='T'){
       scrollToTop();
     }
-
-    if(e.key==='1') selectCategory('all',0);
-    if(e.key==='2') selectCategory('video',1);
-    if(e.key==='3') selectCategory('graphic',2);
-    if(e.key==='4') selectCategory('audio',3);
-    if(e.key==='5') selectCategory('3d',4);
-    if(e.key==='6') selectCategory('engineering',5);
-    if(e.key==='7') selectCategory('medicine',6);
-    if(e.key==='8') selectCategory('dev',7);
-    if(e.key==='9') selectCategory('office',8);
-    if(e.key==='0') selectCategory('streaming',9);
+    
+    // Categorías por números
+    const num = parseInt(e.key);
+    if (num === 1) selectCategory('all');
+    else if (num > 1 && num <= CATEGORIES.length) {
+      selectCategory(CATEGORIES[num-1].id);
+    }
 
     if(e.key==='s'||e.key==='S'){
       e.preventDefault();
       toggleSidebar();
-    }
-  }
-});
-
-document.getElementById('search').addEventListener('keydown',(e)=>{
-  const sug=document.getElementById('suggestions');
-  if(sug.style.display==='block'){
-    const items=sug.querySelectorAll('.sug-item');
-    if(items.length){
-      if(e.key==='ArrowDown'){
-        e.preventDefault();
-        const active=sug.querySelector('.sug-active');
-        if(active) active.classList.remove('sug-active');
-        const first=sug.querySelector('.sug-item');
-        if(first) first.classList.add('sug-active');
-      } else if(e.key==='ArrowUp'){
-        e.preventDefault();
-        const active=sug.querySelector('.sug-active');
-        if(active) active.classList.remove('sug-active');
-        const items=sug.querySelectorAll('.sug-item');
-        if(items.length) items[items.length-1].classList.add('sug-active');
-      } else if(e.key==='Enter'){
-        e.preventDefault();
-        const active=sug.querySelector('.sug-active');
-        if(active){ active.click(); }
-      }
     }
   }
 });
@@ -374,15 +316,8 @@ document.addEventListener('click',(e)=>{
 
 window.addEventListener('hashchange',handleHash);
 
-function toggleKbdHint(){
-  document.getElementById('kbd-hint').classList.toggle('show');
-}
-
-document.addEventListener('keydown',(e)=>{
-  if(e.key==='?' && document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){
-    toggleKbdHint();
-  }
-});
-
-buildNav(); buildStats(); renderGrid();
+// Inicialización
+buildNav(); 
+buildStats(); 
+renderGrid();
 handleHash();
