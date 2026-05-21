@@ -87,23 +87,21 @@ function goHome(){
 
 function initHeroLogos() {
   const container = document.getElementById('hero-logos');
-  if (!container || container.children.length > 0) return; // Ya inicializado o no existe
+  if (!container || container.children.length > 0) return; 
 
-  // Seleccionar algunos programas aleatorios para mostrar
-  const randomProgs = [...PROGRAMS].sort(() => 0.5 - Math.random()).slice(0, 15);
+  // Aumentamos la cantidad de logos para llenar todo el fondo
+  const progsToFloat = [...PROGRAMS].sort(() => 0.5 - Math.random()).slice(0, 25);
 
-  randomProgs.forEach((prog, i) => {
+  progsToFloat.forEach((prog, i) => {
     const el = document.createElement('div');
     el.className = 'floating-logo';
     
-    // Variables CSS aleatorias para la animación
-    const startX = Math.random() * 100 + '%';
-    const endX = (Math.random() * 100) + '%';
-    const duration = (Math.random() * 10 + 15) + 's';
-    const delay = (Math.random() * 10) + 's';
+    // Distribuir a lo largo de todo el ancho (0% a 95%)
+    const left = (Math.random() * 95) + '%';
+    const duration = (Math.random() * 15 + 20) + 's'; // Más lento para que sea elegante
+    const delay = (Math.random() * -20) + 's'; // Delay negativo para que empiecen en diferentes puntos
     
-    el.style.setProperty('--startX', startX);
-    el.style.setProperty('--endX', endX);
+    el.style.setProperty('--left', left);
     el.style.setProperty('--duration', duration);
     el.style.setProperty('--delay', delay);
     
