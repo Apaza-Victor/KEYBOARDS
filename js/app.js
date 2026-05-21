@@ -85,6 +85,33 @@ function goHome(){
   document.getElementById('content').scrollTop=0;
 }
 
+function initHeroLogos() {
+  const container = document.getElementById('hero-logos');
+  if (!container || container.children.length > 0) return; // Ya inicializado o no existe
+
+  // Seleccionar algunos programas aleatorios para mostrar
+  const randomProgs = [...PROGRAMS].sort(() => 0.5 - Math.random()).slice(0, 15);
+
+  randomProgs.forEach((prog, i) => {
+    const el = document.createElement('div');
+    el.className = 'floating-logo';
+    
+    // Variables CSS aleatorias para la animación
+    const startX = Math.random() * 100 + '%';
+    const endX = (Math.random() * 100) + '%';
+    const duration = (Math.random() * 10 + 15) + 's';
+    const delay = (Math.random() * 10) + 's';
+    
+    el.style.setProperty('--startX', startX);
+    el.style.setProperty('--endX', endX);
+    el.style.setProperty('--duration', duration);
+    el.style.setProperty('--delay', delay);
+    
+    el.innerHTML = getIcon(prog.program, prog.color);
+    container.appendChild(el);
+  });
+}
+
 function buildStats(){
   document.getElementById('stat-programs').textContent=PROGRAMS.length;
   document.getElementById('stat-shortcuts').textContent=PROGRAMS.reduce((a,p)=>a+p.shortcuts.length,0);
@@ -99,7 +126,16 @@ function getIcon(name, color){
 function renderGrid(){
   const q=document.getElementById('search').value.toLowerCase().trim();
   const grid=document.getElementById('grid');
+  const hero=document.getElementById('home-hero');
   
+  // Mostrar u ocultar Hero según la categoría y búsqueda
+  if (activeCategory === 'all' && !q) {
+    hero.classList.add('show');
+    initHeroLogos();
+  } else {
+    hero.classList.remove('show');
+  }
+
   const filtered=PROGRAMS.filter(p=>{
     const matchesQuery = !q || p.program.toLowerCase().includes(q) || 
                          p.shortcuts.some(s=>s.description.toLowerCase().includes(q) || 
