@@ -172,7 +172,12 @@ function renderGrid(){
     card.setAttribute('tabindex','0');
     card.style.animationDelay=`${Math.min(idx*35,350)}ms`;
     
-    const shortcuts=q?prog.shortcuts.filter(s=>s.description.toLowerCase().includes(q)||s.keys.some(k=>k.toLowerCase().includes(q))):prog.shortcuts;
+    // Si el nombre del programa coincide exactamente con la búsqueda (insensible a mayúsculas),
+    // mostramos todos sus atajos. De lo contrario, filtramos los atajos por la consulta.
+    const isExactProgramMatch = prog.program.toLowerCase() === q;
+    const shortcuts = (q && !isExactProgramMatch) 
+      ? prog.shortcuts.filter(s => s.description.toLowerCase().includes(q) || s.keys.some(k => k.toLowerCase().includes(q)))
+      : prog.shortcuts;
     
     const rows=shortcuts.map(sh=>{
       const keysHtml=sh.keys.map((k,ki)=>{
