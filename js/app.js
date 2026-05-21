@@ -116,34 +116,62 @@ function buildStats(){
 }
 
 function getIcon(name, color){
-  // 1. Intentar con Simple Icons (CDN directo)
-  // Convertimos el nombre a un slug válido para Simple Icons (ej: "Adobe Photoshop" -> "adobephotoshop")
   const slug = name.toLowerCase().replace(/[^a-z0-9]/g, '');
   
-  // Lista de mapeos especiales para Simple Icons si el slug automático falla
   const iconMappings = {
     'vscode': 'visualstudiocode',
-    'chrome/brave': 'googlechrome',
-    'terminal(linux/mac)': 'gnumetadataterminal',
-    'cmd(windows)': 'windows',
-    'zabbix(webui)': 'zabbix',
+    'chromebrave': 'googlechrome',
+    'terminallinuxmac': 'gnumetadataterminal',
+    'cmdwindows': 'windows',
+    'zabbixwebui': 'zabbix',
     'sqlserver': 'microsoftsqlserver',
-    'osirix/horos': 'apple',
+    'osirixhoros': 'apple',
     'completeanatomy': 'apple',
     'blufftitler': 'adobe',
     'anki': 'anki',
-    'pubmed': 'pubmed'
+    'pubmed': 'pubmed',
+    'premierepro': 'adobepremierepro',
+    'aftereffects': 'adobeaftereffects',
+    'photoshop': 'adobephotoshop',
+    'illustrator': 'adobeillustrator',
+    'indesign': 'adobeindesign',
+    'audition': 'adobeaudition',
+    'excel': 'microsoftexcel',
+    'word': 'microsoftword',
+    'powerpoint': 'microsoftpowerpoint',
+    'teams': 'microsoftteams',
+    'obsstudio': 'obsstudio',
+    'flstudio': 'flstudio',
+    'abletonlive': 'abletonlive',
+    'unrealengine': 'unrealengine',
+    'unity': 'unity',
+    'autocad': 'autodeskautocad',
+    'maya': 'autodeskmaya',
+    'cinema4d': 'maxoncinema4d',
+    'zbrush': 'pixologicizbrush',
+    'windows11': 'windows11',
+    'androidstudio': 'androidstudio',
+    'mongodb': 'mongodb',
+    'pycharm': 'pycharm',
+    'intellijidea': 'intellijidea',
+    'sublimetext': 'sublimetext',
+    'postman': 'postman',
+    'discord': 'discord',
+    'slack': 'slack',
+    'trello': 'trello',
+    'notion': 'notion',
+    'spotify': 'spotify',
+    'sketched': 'sketchup',
+    'sketchup': 'sketchup'
   };
 
   const finalSlug = iconMappings[slug] || slug;
   
-  // Retornamos una imagen que carga desde Simple Icons
-  // Usamos el color del programa si está definido, si no, el color original de la marca
   const iconColor = color ? color.replace('#', '') : '';
   const iconUrl = `https://cdn.simpleicons.org/${finalSlug}/${iconColor}`;
 
   return `<div class="card-icon" style="background: var(--surface2)">
-    <img src="${iconUrl}" alt="${name}" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'fb\'>${name.substring(0,2).toUpperCase()}</span>';">
+    <img src="${iconUrl}" alt="${name}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'fb\'>${name.substring(0,2).toUpperCase()}</span>';">
   </div>`;
 }
 
@@ -317,6 +345,35 @@ function updateHash(){
   }
 }
 
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcons(newTheme);
+}
+
+function updateThemeIcons(theme) {
+  const darkIcon = document.getElementById('theme-icon-dark');
+  const lightIcon = document.getElementById('theme-icon-light');
+  if (darkIcon && lightIcon) {
+    if (theme === 'dark') {
+      darkIcon.style.display = 'none';
+      lightIcon.style.display = 'block';
+    } else {
+      darkIcon.style.display = 'block';
+      lightIcon.style.display = 'none';
+    }
+  }
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcons(savedTheme);
+}
+
 function handleHash(){
   const hash=window.location.hash.slice(1);
   if(hash){
@@ -403,6 +460,7 @@ document.addEventListener('click',(e)=>{
 window.addEventListener('hashchange',handleHash);
 
 // Inicialización
+initTheme();
 buildNav(); 
 buildStats(); 
 renderGrid();
