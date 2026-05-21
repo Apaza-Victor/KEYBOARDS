@@ -162,16 +162,28 @@ function getIcon(name, color){
     'notion': 'notion',
     'spotify': 'spotify',
     'sketched': 'sketchup',
-    'sketchup': 'sketchup'
+    'sketchup': 'sketchup',
+    'capcut': 'capcut',
+    'davinciresolve': 'davinciresolve',
+    'sonyvegaspro': 'sonyvegas',
+    'finalcutpro': 'finalcutpro',
+    'krita': 'krita',
+    'canva': 'canva'
   };
 
   const finalSlug = iconMappings[slug] || slug;
   
-  const iconColor = color ? color.replace('#', '') : '';
+  const iconColor = color ? color.replace('#', '') : '6366f1'; 
   const iconUrl = `https://cdn.simpleicons.org/${finalSlug}/${iconColor}`;
 
-  return `<div class="card-icon" style="background: var(--surface2)">
-    <img src="${iconUrl}" alt="${name}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'fb\'>${name.substring(0,2).toUpperCase()}</span>';">
+  return `<div class="card-icon">
+    <img src="${iconUrl}" 
+         alt="${name}" 
+         loading="lazy" 
+         onload="this.style.opacity=1"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+         style="opacity:0; transition: opacity 0.2s;">
+    <span class="fb" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">${name.substring(0,2).toUpperCase()}</span>
   </div>`;
 }
 
