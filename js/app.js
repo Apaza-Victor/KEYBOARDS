@@ -190,8 +190,9 @@ function getIcon(name, color){
   };
 
   const finalSlug = iconMappings[slug] || slug;
-  const iconColor = color ? color.replace('#', '') : '6366f1'; 
-  const iconUrl = `https://cdn.simpleicons.org/${finalSlug}/${iconColor}`;
+  
+  // SOLUCIÓN: No enviamos el parámetro de color para que Simple Icons devuelva el color original de la marca
+  const iconUrl = `https://cdn.simpleicons.org/${finalSlug}`;
 
   // Escapamos el nombre para que no rompa el atributo onerror
   const safeName = name.replace(/'/g, "\\'");
@@ -202,7 +203,7 @@ function getIcon(name, color){
          loading="lazy" 
          onload="this.style.opacity=1"
          onerror="handleIconError(this, '${safeName}')"
-         style="opacity:0; transition: opacity 0.2s; width:70%; height:70%; object-fit:contain;">
+         style="opacity:0; transition: opacity 0.2s; width:75%; height:75%; object-fit:contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
     <span class="fb" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:var(--text-strong);">${name.substring(0,2).toUpperCase()}</span>
   </div>`;
 }
