@@ -115,9 +115,34 @@ function buildStats(){
   document.getElementById('stat-shortcuts').textContent=PROGRAMS.reduce((a,p)=>a+p.shortcuts.length,0);
 }
 
+const CUSTOM_SVGS = {
+  'aftereffects': `<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" rx="38" fill="#00005b"/><path d="M101.4 172l-8.6-24.8H58.2l-8.4 24.8H34.4l34-92.4h22.4l34 92.4h-13.4zm-13.6-34.8l-12.4-36.2-12.2 36.2h24.6zm80.2 13.8c-8.6 0-15.6-2.4-21-7.2-5.4-4.8-8.2-12.2-8.2-22.2v-4.4c0-10 2.8-17.4 8.2-22.2s12.4-7.2 21-7.2c8.2 0 14.8 2.2 20 6.6s7.8 11.2 7.8 20.4h-12.2c0-5.8-1.2-10-3.6-12.8s-6-4.2-11.2-4.2c-5.2 0-9 1.8-11.4 5.4s-3.6 10-3.6 19v5.2c0 9 1.2 15.4 3.6 19s6.2 5.4 11.4 5.4c5.4 0 9.2-1.4 11.4-4.2s3.6-7 3.6-12.8h12.2c0 9.2-2.6 16.2-7.8 20.6-5.2 4.4-11.8 6.6-20 6.6z" fill="#d291ff"/></svg>`,
+  
+  'capcut': `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h4v16h-4V4zM4 4h4v16H4V4zm6 4h4v8h-4V8z" fill="currentColor"/></svg>`,
+  
+  'davinciresolve': `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="7.5" r="4.5" fill="#ff4d4d"/><circle cx="7.5" cy="15.5" r="4.5" fill="#4dff4d"/><circle cx="16.5" cy="15.5" r="4.5" fill="#4d4dff"/></svg>`,
+  
+  'anki': `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 4l8.3 17h18.7l-13.5 13.2 3.2 18.8-16.7-8.8-16.7 8.8 3.2-18.8-13.5-13.2h18.7z" fill="#5b9cfd"/></svg>`,
+  
+  'sonyvegaspro': `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h20v20H2V2zm18 18V4H4v16h16zM6 7l4 10h2l4-10h-2l-3 7.5L8 7H6z" fill="#0070c0"/></svg>`,
+  
+  'illustrator': `<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" rx="38" fill="#330000"/><path d="M101.4 172l-8.6-24.8H58.2l-8.4 24.8H34.4l34-92.4h22.4l34 92.4h-13.4zm-13.6-34.8l-12.4-36.2-12.2 36.2h24.6zm44.2 34.8V84.2h12.2V172h-12.2zm48 0V84.2h12.2V172h-12.2z" fill="#ff9a00"/></svg>`,
+  
+  'photoshop': `<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" rx="38" fill="#001e36"/><path d="M91.2 133.2c0 9.4-2.2 16.4-6.6 20.8s-10.8 6.6-19.2 6.6H50v11.4H35.6V84.2h32c8.2 0 14.6 2.2 19 6.6s6.6 11.2 6.6 20.4v22zm-14.4-23c0-10.8-5-16.2-15-16.2H50v32.4h11.8c10 0 15-5.4 15-16.2v-16.2zm76.6 44.2c-5.2 4.4-12.2 6.6-20.8 6.6-8.2 0-14.8-2.2-20-6.6s-7.8-10.8-7.8-19.2h13.2c0 9.2 4.8 13.8 14.6 13.8 4.6 0 8.2-1 10.6-3s3.6-4.8 3.6-8.4c0-3.4-1-6-3-7.8s-6-3.6-12.2-5.4c-8.6-2.6-14.8-5.6-18.4-9.2s-5.4-8.8-5.4-15.6c0-7.8 2.6-14 7.8-18.4s12.2-6.6 20.8-6.6c7.8 0 14.2 2 19.2 6s7.6 10 7.6 18h-13.2c0-8-4.4-12-13.2-12-4.2 0-7.6 1-10 3s-3.6 4.8-3.6 8.2c0 3.2 1 5.8 3 7.6s6 3.4 12 5.2c8.6 2.6 14.8 5.6 18.4 9.2s5.4 9 5.4 16.2c0 8.4-2.6 15-7.8 19.4z" fill="#31a8ff"/></svg>`,
+  
+  'indesign': `<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" rx="38" fill="#49021f"/><path d="M94 172V84.2h12.2V172H94zm48 0V84.2h15.2c9.4 0 16.8 2.6 22 7.8s7.8 12.8 7.8 22.8v34.4c0 10-2.6 17.6-7.8 22.8s-12.6 7.8-22 7.8H142zm12.2-11.4h3c10.8 0 16.2-5.4 16.2-16.2v-34.4c0-10.8-5.4-16.2-16.2-16.2h-3V160.6z" fill="#ff3366"/></svg>`
+};
+
 function getIcon(name, color){
   const slug = name.toLowerCase().replace(/[^a-z0-9]/g, '');
   
+  // Si tenemos un SVG personalizado, lo usamos directamente
+  if (CUSTOM_SVGS[slug]) {
+    return `<div class="card-icon" style="background: var(--surface2) !important;">
+      ${CUSTOM_SVGS[slug]}
+    </div>`;
+  }
+
   const iconMappings = {
     'vscode': 'visualstudiocode',
     'chromebrave': 'googlechrome',
