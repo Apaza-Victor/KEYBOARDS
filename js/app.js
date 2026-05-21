@@ -115,16 +115,28 @@ function buildStats(){
   document.getElementById('stat-shortcuts').textContent=PROGRAMS.reduce((a,p)=>a+p.shortcuts.length,0);
 }
 
+function handleIconError(img, name) {
+  const container = img.parentElement;
+  img.style.display = 'none';
+
+  // 1. Intentar con los logos originales guardados en ICONS
+  if (typeof ICONS !== 'undefined' && ICONS[name]) {
+    container.innerHTML = ICONS[name];
+  } 
+  // 2. Si no hay logo original, mostrar las iniciales (Fallback final)
+  else {
+    const fallback = container.querySelector('.fb');
+    if (fallback) {
+      fallback.style.display = 'flex';
+    } else {
+      container.innerHTML = `<span class="fb" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:var(--text-strong);">${name.substring(0,2).toUpperCase()}</span>`;
+    }
+  }
+}
+
 function getIcon(name, color){
   const slug = name.toLowerCase().replace(/[^a-z0-9]/g, '');
   
-  // 1. Prioridad: Logos originales de ICONS (en data.js)
-  if (typeof ICONS !== 'undefined' && ICONS[name]) {
-    return `<div class="card-icon" style="background: var(--surface2) !important;">
-      ${ICONS[name]}
-    </div>`;
-  }
-
   const iconMappings = {
     'vscode': 'visualstudiocode',
     'chromebrave': 'googlechrome',
@@ -178,16 +190,18 @@ function getIcon(name, color){
   };
 
   const finalSlug = iconMappings[slug] || slug;
-  
   const iconColor = color ? color.replace('#', '') : '6366f1'; 
   const iconUrl = `https://cdn.simpleicons.org/${finalSlug}/${iconColor}`;
+
+  // Escapamos el nombre para que no rompa el atributo onerror
+  const safeName = name.replace(/'/g, "\\'");
 
   return `<div class="card-icon" style="background: var(--surface2) !important;">
     <img src="${iconUrl}" 
          alt="${name}" 
          loading="lazy" 
          onload="this.style.opacity=1"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+         onerror="handleIconError(this, '${safeName}')"
          style="opacity:0; transition: opacity 0.2s; width:70%; height:70%; object-fit:contain;">
     <span class="fb" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:var(--text-strong);">${name.substring(0,2).toUpperCase()}</span>
   </div>`;
