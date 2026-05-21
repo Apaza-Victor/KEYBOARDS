@@ -1,14 +1,15 @@
-// ══════════════════════════════════════════
-// ICONOS SVG — logos originales (Comentados para uso futuro)
-// ══════════════════════════════════════════
-/*
 const ICONS = {
   // ── VIDEO ──
   'After Effects': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#00005b"/><text x="22" y="30" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="22" fill="#9999FF">Ae</text></svg>`,
   'Premiere Pro': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#1d1342"/><text x="22" y="30" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="22" fill="#E8D5A3">Pr</text></svg>`,
-  ... (Contenido omitido por brevedad, ver historial) ...
+  'DaVinci Resolve': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#1a1a1a"/><circle cx="22" cy="16" r="8" fill="#ff4d4d"/><circle cx="14" cy="28" r="8" fill="#4dff4d"/><circle cx="30" cy="28" r="8" fill="#4d4dff"/></svg>`,
+  'CapCut': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#000"/><path d="M12 12h5v20h-5V12zm15 0h5v20h-5V12z" fill="#fff"/></svg>`,
+  
+  // ── DISEÑO ──
+  'Photoshop': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#001e36"/><text x="22" y="30" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="22" fill="#31a8ff">Ps</text></svg>`,
+  'Illustrator': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#330000"/><text x="22" y="30" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="22" fill="#ff9a00">Ai</text></svg>`,
+  'InDesign': `<svg viewBox="0 0 44 44"><rect width="44" height="44" rx="9" fill="#49021f"/><text x="22" y="30" text-anchor="middle" font-family="Georgia,serif" font-weight="900" font-size="22" fill="#ff3366">Id</text></svg>`,
 };
-*/
 
 // Ahora el sistema utiliza Simple Icons vía CDN para mayor consistencia y catálogo.
 // Ver función getIcon() en app.js para la lógica de carga.
