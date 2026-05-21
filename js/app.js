@@ -126,7 +126,6 @@ function getIcon(name, color){
     'zabbixwebui': 'zabbix',
     'sqlserver': 'microsoftsqlserver',
     'osirixhoros': 'apple',
-    'completeanatomy': 'apple',
     'blufftitler': 'adobe',
     'anki': 'anki',
     'pubmed': 'pubmed',
@@ -176,14 +175,14 @@ function getIcon(name, color){
   const iconColor = color ? color.replace('#', '') : '6366f1'; 
   const iconUrl = `https://cdn.simpleicons.org/${finalSlug}/${iconColor}`;
 
-  return `<div class="card-icon">
+  return `<div class="card-icon" style="background: var(--surface2) !important;">
     <img src="${iconUrl}" 
          alt="${name}" 
          loading="lazy" 
          onload="this.style.opacity=1"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-         style="opacity:0; transition: opacity 0.2s;">
-    <span class="fb" style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">${name.substring(0,2).toUpperCase()}</span>
+         style="opacity:0; transition: opacity 0.2s; width:70%; height:70%; object-fit:contain;">
+    <span class="fb" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; color:var(--text-strong);">${name.substring(0,2).toUpperCase()}</span>
   </div>`;
 }
 
