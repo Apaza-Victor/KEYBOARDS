@@ -116,9 +116,35 @@ function buildStats(){
 }
 
 function getIcon(name, color){
-  if(ICONS[name]) return `<div class="card-icon">${ICONS[name]}</div>`;
-  const ini=name.replace(/[^a-zA-Z0-9]/g,'').substring(0,2).toUpperCase();
-  return `<div class="card-icon" style="background:${color||'#6366f1'}"><span class="fb">${ini}</span></div>`;
+  // 1. Intentar con Simple Icons (CDN directo)
+  // Convertimos el nombre a un slug válido para Simple Icons (ej: "Adobe Photoshop" -> "adobephotoshop")
+  const slug = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+  
+  // Lista de mapeos especiales para Simple Icons si el slug automático falla
+  const iconMappings = {
+    'vscode': 'visualstudiocode',
+    'chrome/brave': 'googlechrome',
+    'terminal(linux/mac)': 'gnumetadataterminal',
+    'cmd(windows)': 'windows',
+    'zabbix(webui)': 'zabbix',
+    'sqlserver': 'microsoftsqlserver',
+    'osirix/horos': 'apple',
+    'completeanatomy': 'apple',
+    'blufftitler': 'adobe',
+    'anki': 'anki',
+    'pubmed': 'pubmed'
+  };
+
+  const finalSlug = iconMappings[slug] || slug;
+  
+  // Retornamos una imagen que carga desde Simple Icons
+  // Usamos el color del programa si está definido, si no, el color original de la marca
+  const iconColor = color ? color.replace('#', '') : '';
+  const iconUrl = `https://cdn.simpleicons.org/${finalSlug}/${iconColor}`;
+
+  return `<div class="card-icon" style="background: var(--surface2)">
+    <img src="${iconUrl}" alt="${name}" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'fb\'>${name.substring(0,2).toUpperCase()}</span>';">
+  </div>`;
 }
 
 function renderGrid(){

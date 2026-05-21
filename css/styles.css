@@ -117,6 +117,7 @@
 
   /* ICON */
   .card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; position: relative; }
+  .card-icon img { width: 70%; height: 70%; object-fit: contain; }
   .card-icon svg { width: 44px; height: 44px; display: block; }
   .card-icon .fb { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 11px; color: #fff; position: relative; z-index: 1; text-align: center; }
 
